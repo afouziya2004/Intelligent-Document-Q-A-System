@@ -19,10 +19,14 @@ def run_qa_system():
             print("👋 Exiting system...")
             break
 
-        result, score = retrieve(query, vectorizer, vectors, chunks)
+        from answer_generator import generate_answer
 
-        print("\n💡 Answer:")
-        print(result)
+result, score = retrieve(query, vectorizer, vectors, chunks)
+
+answer = generate_answer(query, result)
+
+print("\n💡 Answer:")
+print(answer)
         print(f"\n🔎 Similarity Score: {score:.4f}\n")
 
 
